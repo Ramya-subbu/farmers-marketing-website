@@ -136,3 +136,9 @@ nav ul li a:hover {
  Height: 100%;
  Object-fit: cover;
 }
+.hero-text{
+    width: 890px;
+    background-color: aliceblue;
+    color: black;
+}
+   
