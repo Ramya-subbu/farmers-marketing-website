@@ -1,0 +1,138 @@
+Body {
+ Margin: 0;
+ Padding: 0;
+}
+Header {
+ Position: absolute;
+ Top: 0;
+ Left: 0;
+ Width: 100%;
+ Background-color: transparent;
+ z-index: 1;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding: 20px;
+}
+.logo {
+ Margin-right: 20px;
+}
+.logo img {
+ Width: 100px;
+ Height: auto;
+}
+.ship-to-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.ship-to-text {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #fff; 
+}
+#select-country {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 200px;
+}
+#select-country option {
+  padding: 10px;
+}
+#select-country option::before {
+  content: attr(data-flag);
+  margin-right: 10px;
+}
+.login-signup{
+  position: absolute; 
+  top: 10px; 
+  right: 50px; 
+}
+.login-signup a {
+  padding: 10px 20px;
+  border-radius: 50%; 
+  border:none;
+  background-color: #4caf50;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.login-signup a:hover{
+  background-color: #3e8e41;
+  color:#00FF00 ;
+}
+nav ul{
+ List-style: none;
+ Margin: 0;
+ Padding: 0;
+ Display: flex;
+ Justify-content: space-between;
+}
+nav ul li {
+ Margin-right: 20px;
+}
+nav ul a {
+ Color: white;
+ Text-decoration: none;
+ font-size: 24px;
+}
+nav ul li a:hover {
+  color:aqua;
+}
+.hero-text {
+  position: absolute;
+  bottom: -130%;
+  left: 30%;
+  transform: translate(-50%);
+  font-size: 36px;
+  font-weight: bold;
+  color:white;
+  text-align: center;
+  width: 60%;
+}
+.search-bar {
+  position: absolute;
+  bottom: -170%;
+  left: 20%;
+  transform: translateX(-50%);
+  background-color: #FFFFFF;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.search-bar input[type="text"] {
+  width: 100%;
+  padding: 2px;
+  border: none;
+  font-size: 2em;
+}
+.search-bar button.search-btn {
+  background-color: #FF8C00;
+  color: #FFFFFF;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.search-bar button.search-btn:hover {
+  background-color: #FF9900;
+}
+.hero {
+ Position: relative;
+ Background-size: cover;
+ Background-position: center;
+ Height: 100vh;
+ Display: flex;
+ Justify-content: center;
+ Align-items: center;
+ Color: #fff;
+}
+.hero img {
+ Position: absolute;
+ Top: 0;
+ Left: 0;
+ Width: 100%;
+ Height: 100%;
+ Object-fit: cover;
+}
