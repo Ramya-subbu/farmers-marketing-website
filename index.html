@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>farmersmarket.com</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="icon" type="image/png" href="farmer.png">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="farmer.png" alt="Farmers Market Logo">
+        </div>
+        <nav>
+            <div class="ship-to-container">
+                <span class="ship-to-text">Ship to</span>
+                <select id="select-country">
+                    <option value="" selected disabled>Select Country</option>
+                    <option value="USA" data-flag="US">Usa</option>
+                    <option value="CAN" data-flag="🇨🇦">Canada</option>
+                    <option value="MEX" data-flag="🇲🇽">Mexico</option>
+                    <option value="GBR" data-flag="🇬🇧">United Kingdom</option>
+                    <option value="AUS" data-flag="🇦🇺">Australia</option>
+                    <option value="IND" data-flag="🇮🇳">India</option>
+                    <option value="CHN" data-flag="🇨🇳">China</option>
+                    <option value="JPN" data-flag="🇯🇵">Japan</option>
+                    <option value="GER" data-flag="🇩🇪">Germany</option>
+                    <option value="FRA" data-flag="🇫🇷">France</option>
+                    <option value="ITA" data-flag="🇮🇹">Italy</option>
+                    <option value="ESP" data-flag="🇪🇸">Spain</option>
+                    <option value="BRA" data-flag="🇧🇷">Brazil</option>
+                    <option value="RUS" data-flag="🇷🇺">Russia</option>
+                    <option value="KOR" data-flag="🇰🇷">South Korea</option>
+                </select>
+            </div>
+            <div class="login-signup">
+                <a href="login.html" class="login">Login</a>
+                <a href="signup.html" class="signup">Sign Up</a>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="buyer-central.html">Buyer central</a></li>
+                <li><a href="help-center.html">Help center</a></li>
+            </ul>
+        </nav>
+            <p class="hero-text">An Ecommerce Website For Farmers Marketing</p>
+            <div class="search-bar">
+                <input type="text" placeholder="Search for products...">
+                <button class="search-btn"><i class="fa fa-search"></i></button>
+            </div>
+    </header>
+    <section class="hero">
+        <img src="homepage.jpg" alt="farmers market image">
+    </section>
+</body>
+</html>
