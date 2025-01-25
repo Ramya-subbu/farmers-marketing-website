@@ -141,4 +141,26 @@ nav ul li a:hover {
  background-color: aliceblue;
  color: black;
 }
-   
+.about {
+    background-image: url('about\ homepage.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about .container {
+     position: absolute;
+     bottom: 50%;
+     left: 30%;
+     transform: translate(-50%);
+     font-size: 26px;
+     font-weight: bold;
+     color:white;
+     text-align: center;
+     width: 60%;
+}
+ 
