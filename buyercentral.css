@@ -3,29 +3,22 @@ body {
     margin: 0;
     padding: 0;
 }
-
 header {
-    background-color:transparent;
-    z-index: 1;
-    color: #fff;
+    background-color: transparent;
     padding: 2px;
-    text-align: center;
-    position: absolute;
     top: 0;
-    left: 0;
     width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    position: absolute;
 }
-
 .homepage-image {
     width: 100%;
     height: 100vh;
     object-fit: cover;
     margin-bottom: 2px;
 }
-.options {
+.product-section {
     position: absolute;
     top: 1em;
     right: 1em;
@@ -34,8 +27,8 @@ header {
     justify-content: space-between;
     flex-direction: row;
     pointer-events: auto;
+    cursor: pointer;
 }
-
 .option-btn {
     background-color: orange;
     color: #fff;
@@ -46,36 +39,10 @@ header {
     border-radius: 50%;
     transition: background-color 0.3s ease;
 }
-
 .option-btn:hover {
     background-color: orange;
     color:red ;
 }
 
-.product-section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 2em;
-    overflow-y: auto;
-    max-height: 600px;
-    max-width: 1200px;
-}
 
-.product-card {
-    margin: 20px;
-    width: calc(25% - 40px);
-    background-color: #fff;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.product-card img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 10px 10px 0 0;
-}
 
