@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farmers' Market</title>
+    <title>Login Page</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,9 +12,20 @@
             <h2>Login</h2>
             <form id="login-form">
                 <label for="mobile-number">Mobile Number:</label>
-                <input type="text" id="mobile-number" name="mobile-number"><br><br>
+                <input type="text" id="mobile-number" name="mobile-number">
+                <span id="mobile-number-error"></span>
+                <br><br>
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password"><br><br>
+                <input type="password" id="password" name="password">
+                <span id="password-error"></span>
+                <br><br>
+                <label for="user-type">User Type:</label>
+                <select id="user-type" name="user-type">
+                    <option value="farmer">Farmer</option>
+                    <option value="buyer">Buyer</option>
+                </select>
+                <span id="user-type-error"></span>
+                <br><br>
                 <button type="submit">Login</button>
             </form>
             <p>Don't have an account? <a href="signup.html">Signup</a></p>
