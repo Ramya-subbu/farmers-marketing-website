@@ -142,19 +142,30 @@ nav ul li a:hover {
  color: black;
 }
 .about {
-    background-image: url('about\ homepage.jpeg');
-    background-size: 100% 100vh; /* Changed background size */
-    background-position: center;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw; /* Added viewport width */
-    background-repeat: no-repeat; /* Added background repeat */
-}
-
-.about .container {
     position: relative;
+    width: 200vw;
+    height: 200vh;
+    overflow-x: scroll;
+    overflow-y: scroll;
+  }
+  
+  .about .background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('about\ homepage.jpeg');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+  }
+  
+  .about .container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-size: 26px;
     font-weight: bold;
     color: #333;
@@ -164,7 +175,8 @@ nav ul li a:hover {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
-}
+    z-index: 1;
+  }
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
