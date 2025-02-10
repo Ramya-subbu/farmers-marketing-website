@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farmers' Market</title>
+    <title>Signup Page</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,16 +12,31 @@
             <h2>Signup</h2>
             <form id="signup-form">
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name"><br><br>
+                <input type="text" id="name" name="name">
+                <span id="name-error"></span>
+                <br><br>
                 <label for="mobile-number">Mobile Number:</label>
-                <input type="text" id="mobile-number" name="mobile-number"><br><br>
+                <input type="text" id="mobile-number" name="mobile-number">
+                <span id="mobile-number-error"></span>
+                <br><br>
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password"><br><br>
+                <input type="password" id="password" name="password">
+                <span id="password-error"></span>
+                <br><br>
                 <label for="confirm-password">Confirm Password:</label>
-                <input type="password" id="confirm-password" name="confirm-password"><br><br>
+                <input type="password" id="confirm-password" name="confirm-password">
+                <span id="confirm-password-error"></span>
+                <br><br>
+                <label for="user-type">User Type:</label>
+                <select id="user-type" name="user-type">
+                    <option value="farmer">Farmer</option>
+                    <option value="buyer">Buyer</option>
+                </select>
+                <span id="user-type-error"></span>
+                <br><br>
                 <button type="submit">Signup</button>
             </form>
-            <p>Already have an account? <a href="index.html">Login</a></p>
+            <p>Already have an account? <a href="login.html">Login</a></p>
         </div>
     </div>
     <script src="script.js"></script>
