@@ -1,0 +1,37 @@
+[
+    {
+      "id": 1,
+      "name": "Artificial Rose",
+      "price": 4.99,
+      "imageUrl": "images/artificial-plants/artificial-rose.jpg",
+      "quantity": "1 piece"
+    },
+    {
+      "id": 2,
+      "name": "Artificial Lily",
+      "price": 5.99,
+      "imageUrl": "images/artificial-plants/artificial-lily.jpg",
+      "quantity": "1 piece"
+    },
+    {
+      "id": 3,
+      "name": "Artificial Sunflower",
+      "price": 6.99,
+      "imageUrl": "images/artificial-plants/artificial-sunflower.jpg",
+      "quantity": "1 piece"
+    },
+    {
+      "id": 4,
+      "name": "Artificial Tulip",
+      "price": 5.49,
+      "imageUrl": "images/artificial-plants/artificial-tulip.jpg",
+      "quantity": "1 piece"
+    },
+    {
+      "id": 5,
+      "name": "Artificial Daisy",
+      "price": 4.99,
+      "imageUrl": "images/artificial-plants/artificial-daisy.jpg",
+      "quantity": "1 piece"
+    }
+  ]
