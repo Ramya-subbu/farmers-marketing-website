@@ -1,0 +1,37 @@
+[
+    {
+      "id": 1,
+      "name": "Carrot",
+      "price": 0.99,
+      "imageUrl": "images/vegetables/carrot.jpg",
+      "quantity": "1 kg"
+    },
+    {
+      "id": 2,
+      "name": "Broccoli",
+      "price": 1.49,
+      "imageUrl": "images/vegetables/broccoli.jpg",
+      "quantity": "500g"
+    },
+    {
+      "id": 3,
+      "name": "Cauliflower",
+      "price": 1.29,
+      "imageUrl": "images/vegetables/cauliflower.jpg",
+      "quantity": "1 kg"
+    },
+    {
+      "id": 4,
+      "name": "Spinach",
+      "price": 0.79,
+      "imageUrl": "images/vegetables/spinach.jpg",
+      "quantity": "200g"
+    },
+    {
+      "id": 5,
+      "name": "Tomato",
+      "price": 0.99,
+      "imageUrl": "images/vegetables/tomato.jpg",
+      "quantity": "1 kg"
+    }
+  ]
