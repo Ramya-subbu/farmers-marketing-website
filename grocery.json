@@ -1,0 +1,37 @@
+[
+    {
+      "id": 1,
+      "name": "Rice",
+      "price": 1.99,
+      "imageUrl": "images/grocery/rice.jpg",
+      "quantity": "5 kg"
+    },
+    {
+      "id": 2,
+      "name": "Wheat Flour",
+      "price": 2.49,
+      "imageUrl": "images/grocery/wheat-flour.jpg",
+      "quantity": "10 kg"
+    },
+    {
+      "id": 3,
+      "name": "Sugar",
+      "price": 0.99,
+      "imageUrl": "images/grocery/sugar.jpg",
+      "quantity": "1 kg"
+    },
+    {
+      "id": 4,
+      "name": "Tea",
+      "price": 1.99,
+      "imageUrl": "images/grocery/tea.jpg",
+      "quantity": "250g"
+    },
+    {
+      "id": 5,
+      "name": "Coffee",
+      "price": 2.49,
+      "imageUrl": "images/grocery/coffee.jpg",
+      "quantity": "250g"
+    }
+  ]
