@@ -3,7 +3,7 @@
       "id": 1,
       "name": "Apple",
       "price": 1.99,
-      "imageUrl": "images\\fruits\\apple.jpg",
+      "imageUrl":"file:///C:/Users/Ramya/Desktop/farmers.com/images/fruits/apple.jpg",
       "quantity": "1 kg"
     },
     {
