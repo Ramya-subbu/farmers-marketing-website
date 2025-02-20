@@ -59,10 +59,10 @@ header {
 }
 
 .product-box .product-image {
-  width: 150px;
+  width: 100px;
   height: 150px;
   margin-bottom: 20px;
-  object-fit: cover;
+  object-fit: cover
 }
 
 .product-box .quantity-selector {
