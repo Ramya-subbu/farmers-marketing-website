@@ -1,5 +1,5 @@
 let currentIndex = 0;
-const productsPerPage = 3;
+const productsPerPage = 8;
 const cart = [];
 
 // Define an array of product objects
@@ -69,6 +69,38 @@ const products = [
     price: 180
   }
 ]
+
+// Function to add product to cart
+function addProductToCart(productId, quantity) {
+  const product = products.find((product) => product.id == productId);
+  const existingProductInCart = cart.find((cartProduct) => cartProduct.id == productId);
+
+  if (existingProductInCart) {
+    existingProductInCart.quantity += quantity;
+  } else {
+    cart.push({ id: productId, quantity, price: product.price });
+  }
+
+  updateCartTable();
+}
+
+// Function to update cart table
+function updateCartTable() {
+  const cartTableRows = document.createElement("tr");
+  cart.forEach((product) => {
+    const cartTableRow = document.createElement("tr");
+    cartTableRow.innerHTML = `
+      <td>${product.name}</td>
+      <td>${product.quantity}</td>
+      <td>₹${product.price}</td>
+      <td>₹${product.price * product.quantity}</td>
+    `;
+    cartTableRows.appendChild(cartTableRow);
+  });
+  const cartTable = document.getElementById("cart-table");
+  cartTable.innerHTML = ""; // Clear the table
+  cartTable.appendChild(cartTableRows);
+}
 // Function to populate fruit products
 function populateFruitsProducts() {
   const productsSection = document.getElementById("products");
@@ -84,7 +116,7 @@ function populateFruitsProducts() {
             ${product.quantityOptions.map((option) => `<option value="${option}">${option} kg</option>`).join("")}
           </select>
         </div>
-        <p class="price">$${product.price}</p>
+        <p class="price">₹${product.price}</p>
         <div class="product-actions">
           <button class="add-to-cart-btn" data-product-id="${product.id}">Add to Cart</button>
           <button class="buy-now-btn" data-product-id="${product.id}">Buy Now</button>
@@ -93,52 +125,56 @@ function populateFruitsProducts() {
     `;
   }).join("");
   productsSection.innerHTML += productsHtml;
-}
-// Add event listener to quantity select elements
-document.querySelectorAll(".product-box .quantity-selector select").forEach((selectElement) => {
-  selectElement.addEventListener("change", (event) => {
-    console.log("Change event triggered");
-    const productId = event.target.dataset.productId;
-    console.log("Product ID:", productId);
-    const selectedQuantity = parseInt(event.target.value);
-    console.log("Selected quantity:", selectedQuantity);
-    const product = products.find((product) => product.id == productId);
-    console.log("Product found:", product);
-    const totalPrice = selectedQuantity * product.price;
-    console.log("Total price:", totalPrice);
-    const priceElement = event.target.closest(".product-box").querySelector(".price");
-    console.log("Price element found:", priceElement);
-    priceElement.innerHTML = `Price: $${totalPrice}`;
-  });
-});
 
-  // Add event listener to add to cart buttons
+  // Add event listener to quantity select elements after they have been rendered
+  document.querySelectorAll(".quantity-selector select").forEach((selectElement) => {
+    selectElement.addEventListener("change", (event) => {
+      const productId = event.target.dataset.productId;
+      const selectedQuantity = parseInt(event.target.value);
+      const product = products.find((product) => product.id == productId);
+      const totalPrice = selectedQuantity * product.price;
+      const priceElement = event.target.closest(".product-box").querySelector(".price");
+      priceElement.innerHTML = `₹${totalPrice}`;
+    });
+  });
+}
+
+
+  // Attach event listener to add to cart buttons after they have been rendered
   document.querySelectorAll(".add-to-cart-btn").forEach((button) => {
     button.addEventListener("click", (event) => {
       const productId = event.target.dataset.productId;
-      const product = products.find((product) => product.id == productId);
-      cart.push(product);
-      alert(`Added ${product.name} to cart!`);
+      const quantitySelect = event.target.closest(".product-box").querySelector("#quantity-select");
+      const selectedQuantity = parseInt(quantitySelect.value);
+      addProductToCart(productId, selectedQuantity);
     });
   });
 
-  // Add event listener to rating stars
-  document.querySelectorAll(".rating-stars .star").forEach((star) => {
-    star.addEventListener("click", (event) => {
-      const productId = event.target.parentNode.dataset.productId;
-      const rating = parseInt(event.target.dataset.rating);
-      const product = products.find((product) => product.id == productId);
-      product.reviews.push({ rating });
-      populateFruitsProducts();
-    });
+
+// Add event listener to rating stars
+document.querySelectorAll(".rating-stars .star").forEach((star) => {
+  star.addEventListener("click", (event) => {
+    const productId = event.target.parentNode.dataset.productId;
+    const rating = parseInt(event.target.dataset.rating);
+    const product = products.find((product) => product.id == productId);
+    product.reviews.push({ rating });
+    populateFruitsProducts();
   });
-  
+});
+
 // Function to handle "Load More" button click
 function loadMoreProducts() {
+  console.log("Load More button clicked");
   currentIndex += productsPerPage;
+  console.log("currentIndex:", currentIndex);
   populateFruitsProducts();
   if (currentIndex >= products.length) {
-    document.getElementById("load-more-btn").style.display = "none";
+    console.log("All products loaded");
+    const loadMoreBtn = document.getElementById("load-more-btn");
+    if (loadMoreBtn) {
+      console.log("Hiding Load More button");
+      loadMoreBtn.style.display = "none"; // Hide the button after all products are loaded
+    }
   }
 }
 
@@ -150,9 +186,17 @@ document.addEventListener("DOMContentLoaded", () => {
   loadMoreBtn.textContent = "Load More";
   loadMoreBtn.onclick = loadMoreProducts;
   document.getElementById("products").appendChild(loadMoreBtn);
-})
+
+  // Check if all products are loaded and hide the button
+  if (products.length <= productsPerPage) {
+    const loadMoreBtn = document.getElementById("load-more-btn");
+    if (loadMoreBtn) {
+      loadMoreBtn.style.display = "none";
+    }
+  }
+
   // Create cart page
-    const cartPage = document.createElement("div");
+  const cartPage = document.createElement("div");
   cartPage.id = "cart-page";
   document.body.appendChild(cartPage);
 
@@ -160,24 +204,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const cartTable = document.createElement("table");
   cartTable.id = "cart-table";
   cartPage.appendChild(cartTable);
-
-// Function to update cart table
-function updateCartTable() {
-  const cartTableRows = document.createElement("tr");
-  cart.forEach((product) => {
-    const cartTableRow = document.createElement("tr");
-    cartTableRow.innerHTML = `
-      <td>${product.name}</td>
-      <td>1</td>
-      <td>$${product.price}</td>
-      <td>$${product.price}</td>
-    `;
-    cartTableRows.appendChild(cartTableRow);
-  });
-  const cartTable = document.getElementById("cart-table");
-  cartTable.innerHTML = ""; // Clear the table
-  cartTable.appendChild(cartTableRows);
-}
 
   // Add event listener to buy now button
   document.querySelectorAll(".buy-now-btn").forEach((button) => {
@@ -188,3 +214,4 @@ function updateCartTable() {
       document.getElementById("cart-page").style.display = "block";
     });
   });
+});
