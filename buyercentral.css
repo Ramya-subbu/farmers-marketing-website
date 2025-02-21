@@ -85,24 +85,26 @@ header {
   color: #fff;
   border: none;
   padding: 10px 20px;
-  font-size: 14px;
+  font-size: 16px;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 50%;
   transition: background-color 0.3s ease;
+  text-decoration: none; /* Add this to remove the underline */
 }
 
 .product-box .add-to-cart-btn:hover, .product-box .buy-now-btn:hover {
   background-color: #ff9900;
 }
 .add-to-cart-btn, .buy-now-btn {
-  background-color: orange;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 50%;
-  transition: background-color 0.3s ease;
+  background-color: orange !important;
+  color: #fff !important;
+  border: none !important;
+  padding: 10px 20px !important;
+  font-size: 16px !important;
+  cursor: pointer !important;
+  border-radius: 50% !important;
+  transition: background-color 0.3s ease !important;
+  text-decoration: none !important; /* Add this to remove the underline */
 }
 
 .add-to-cart-btn:hover, .buy-now-btn:hover {
