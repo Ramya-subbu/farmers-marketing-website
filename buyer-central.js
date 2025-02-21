@@ -118,8 +118,8 @@ function populateFruitsProducts() {
         </div>
         <p class="price">₹${product.price}</p>
         <div class="product-actions">
-          <button class="add-to-cart-btn" data-product-id="${product.id}">Add to Cart</button>
-          <button class="buy-now-btn" data-product-id="${product.id}">Buy Now</button>
+          <a href="cart.html" id="add-to-cart-btn" class="add-to-cart-btn" data-product-id="${product.id}">Add to cart</a>
+          <a href="buy now.html" id="buy-now-btn" class="buy-now-btn" data-product-id="${product.id}">Buy now</a>
         </div>
       </div>
     `;
