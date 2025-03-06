@@ -1,52 +1,59 @@
-// cart.js
-
-document.addEventListener("DOMContentLoaded", function () {
-    const cartItemsContainer = document.getElementById("cart-items");
+// Function to load and display cart products from localStorage
+function loadCart() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || []; // Retrieve cart from localStorage
   
-    // Retrieve the cart from localStorage
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartTableBody = document.querySelector('#cart-table tbody');
+    const totalPriceElement = document.getElementById('total-price');
+    let totalAmount = 0; // Variable to keep track of the total price
   
-    // If cart is empty, display a message
-    if (cart.length === 0) {
-      cartItemsContainer.innerHTML = "<p>Your cart is empty.</p>";
-    } else {
-      // Loop through each product in the cart and display it
-      cart.forEach((product) => {
-        const cartItem = document.createElement("div");
-        cartItem.classList.add("cart-item");
-        cartItem.innerHTML = `
-          <img src="${product.imageUrl}" alt="${product.name}" class="cart-item-image">
-          <div class="cart-item-details">
-            <h3>${product.name}</h3>
-            <p>Quantity: ${product.quantity}</p>
-            <p>Price: ₹${product.price}</p>
-            <p>Total: ₹${product.price * product.quantity}</p>
-          </div>
-          <a href="remove.html" class="remove-from-cart" data-product-id="${product.id}">Remove</button>
-        `;
-        // Append the item to the cart container
-        cartItemsContainer.appendChild(cartItem);
-      });
-    }
+    // Clear existing rows in the table before adding new ones
+    cartTableBody.innerHTML = '';
   
-    // Add event listener to remove product from cart using event delegation
-    cartItemsContainer.addEventListener("click", function (event) {
-      if (event.target && event.target.classList.contains("remove-from-cart")) {
-        const productId = event.target.dataset.productId;
-        removeFromCart(productId);
-      }
+    // Loop through each product in the cart and create table rows
+    cart.forEach((product) => {
+      const productTotalPrice = product.price * product.quantity;
+      totalAmount += productTotalPrice; // Add the product's total price to the overall total
+  
+      // Create a new table row for each product
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td><img src="${product.imageUrl}" alt="${product.name}" width="50px"></td>
+        <td>${product.name}</td>
+        <td>${product.quantity}</td>
+        <td>₹${product.price}</td>
+        <td>₹${productTotalPrice}</td>
+        <td><button class="remove-btn" data-product-id="${product.id}">Remove</button></td>
+      `;
+      cartTableBody.appendChild(row);
     });
-  });
   
-  // Function to remove product from cart
-  function removeFromCart(productId) {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const updatedCart = cart.filter((product) => product.id !== parseInt(productId));
+    // Update the total amount in the cart
+    totalPriceElement.textContent = totalAmount;
   
-    // Update localStorage with the updated cart
-    localStorage.setItem('cart', JSON.stringify(updatedCart));
-  
-    // Reload the cart page to reflect the change
-    window.location.reload();
+    // Add event listeners to "Remove" buttons
+    document.querySelectorAll('.remove-btn').forEach((button) => {
+      button.addEventListener('click', () => {
+        const productId = button.getAttribute('data-product-id');
+        removeProductFromCart(productId); // Call function to remove product
+      });
+    });
   }
+  
+  // Function to remove a product from the cart
+  function removeProductFromCart(productId) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || []; // Get current cart from localStorage
+  
+    // Filter out the product with the matching ID
+    cart = cart.filter((product) => product.id !== productId);
+  
+    // Save the updated cart back to localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+  
+    loadCart(); // Reload the cart after removing the product
+  }
+  
+  // Call the loadCart function when the page loads
+  document.addEventListener('DOMContentLoaded', () => {
+    loadCart();
+  });
   
