@@ -3,15 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cart</title>
-  <link rel="stylesheet" href="products.css"> <!-- Add your cart styles here -->
+  <title>Your Cart</title>
+  <link rel="stylesheet" href="products.css"> <!-- Your custom styles for the cart -->
 </head>
 <body>
   <h1>Your Cart</h1>
-  <div id="cart-items">
-    <!-- Cart items will be displayed here -->
+
+  <table id="cart-table">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Total</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Cart items will be inserted dynamically here -->
+    </tbody>
+  </table>
+
+  <div id="total-amount">
+    <p><strong>Total Amount:</strong> ₹<span id="total-price">0</span></p>
   </div>
 
-  <script src="app.js"></script>
+  <script src="app.js"></script> <!-- Link your JavaScript file -->
 </body>
 </html>
